@@ -1,0 +1,252 @@
+:root {
+  --color-principal: #7161c9;
+  --color-secundario: #e9e7e6;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-secundario);
+}
+
+/*auth*/
+.main-auth {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-principal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-section {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 2rem rgba(100, 100, 100, 0.25);
+}
+
+.form-section figure {
+  width: 50%;
+  height: 100%;
+  margin: 0;
+}
+
+.form-section figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.form-container h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.form-container div {
+  margin: 15px 0;
+}
+
+.form-container label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.form-container input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-container input:focus {
+  outline: 1px solid rgb(0, 153, 250);
+}
+
+.form-container a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: blue;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+.form-container input[type="submit"] {
+  padding: 15px 0;
+  cursor: pointer;
+  background-color: #6163c9;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #2f3086;
+}
+
+/*dashboard*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+  height: 70px;
+  background-color: var(--color-principal);
+  box-sizing: border-box;
+}
+
+.header h1 {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+}
+
+.navbar ul li {
+  cursor: pointer;
+}
+
+.navbar ul li::after {
+  content: "";
+  height: 4px;
+  width: 0;
+  display: block;
+  background-color: var(--color-secundario);
+  transition: all .3s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.main-student {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  border-spacing: 0;
+  width: 800px;
+  margin: 50px auto;
+  background-color: white;
+}
+
+td,
+th {
+  border-bottom: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+thead {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.btn {
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #222;
+}
+
+.btn.btn-edit {
+  background-color: yellow;
+  margin-right: 5px;
+}
+
+.btn.btn-delete {
+  background-color: red;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(100, 100, 100, 0.25);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-modal {
+  background-color: white;
+  min-width: 500px;
+  min-height: 500px;
+  position: relative;
+  padding: 10px;
+}
+
+.container-modal i {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  color: red;
+}
+
+.modal-header {
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.content-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 900px) {
+  .form-section .form-container {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .form-section figure {
+    display: none;
+  }
+
+  .form-section .form-container {
+    width: 300px;
+  }
+}
