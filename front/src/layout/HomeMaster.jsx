@@ -2,7 +2,7 @@ import NavBar from "../components/NavBar"
 import { useStudents } from "../contexts/store"
 import { useEffect } from 'react';
 
-const HomeMaster = ({children}) => {
+const HomeMaster = ({ children }) => {
   const { getStudents, user } = useStudents();
   useEffect(() => {
     user();
@@ -10,10 +10,12 @@ const HomeMaster = ({children}) => {
   }, [])
   return (
     <>
-      <NavBar />
-      <main className="main-student">
-        {children}
-      </main>
+      <div className="container-dashboard">
+        <NavBar />
+        <main className="main-student">
+          {children}
+        </main>
+      </div>
     </>
   )
 }

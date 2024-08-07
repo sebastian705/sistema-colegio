@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard.jsx';
 import Cursos from './pages/Cursos.jsx';
 import Teachers from './pages/Teachers.jsx';
 import Login from './pages/Login.jsx';
+import Inscripciones from './pages/Inscripciones.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: '/dashboard/profesores',
         element: <Teachers />
       },
+      {
+        path: '/dashboard/inscripciones',
+        element: <Inscripciones />
+      }
     ]
   }
 ]);

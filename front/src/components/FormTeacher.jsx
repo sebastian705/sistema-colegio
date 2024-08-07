@@ -2,17 +2,17 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useStudents } from '../contexts/store';
 
-function FormStudent({ setShow }) {
-  const { addStudent } = useStudents();
+function FormTeacher({ setShow }) {
+  const { addTeacher } = useStudents();
   const { register, handleSubmit } = useForm()
   const onSubmit = (data) => {
-    addStudent(data);
+    addTeacher(data);
     setShow(false);
   }
 
   return (
     <>
-      <form className="form-student" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Nombre</label>
           <input {...register("nombre")} />
@@ -35,4 +35,4 @@ function FormStudent({ setShow }) {
   )
 }
 
-export default FormStudent
+export default FormTeacher

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
@@ -23,11 +24,11 @@ Route::post("/teachers", [TeacherController::class, 'store']);
 Route::delete("/teachers/{id}", [TeacherController::class, 'destroy']);
 Route::put("/teachers/{id}", [TeacherController::class, 'update']);
 
-Route::get("/courses", [TeacherController::class, 'index']);
-Route::get("/courses/{id}", [TeacherController::class, 'show']);
-Route::post("/courses", [TeacherController::class, 'store']);
-Route::delete("/courses/{id}", [TeacherController::class, 'destroy']);
-Route::put("/courses/{id}", [TeacherController::class, 'update']);
+Route::get("/courses", [CourseController::class, 'index']);
+Route::get("/courses/{id}", [CourseController::class, 'show']);
+Route::post("/courses", [CourseController::class, 'store']);
+Route::delete("/courses/{id}", [CourseController::class, 'destroy']);
+Route::put("/courses/{id}", [CourseController::class, 'update']);
 
 Route::post("/login", [AuthController::class, 'login']);
 Route::post("/register", [AuthController::class, 'register']);

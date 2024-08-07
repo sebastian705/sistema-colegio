@@ -1,19 +1,19 @@
 import { useStudents } from "../contexts/store";
 import { useEffect, useState } from "react";
 import FormStudent from "./FormStudent";
+import EditStudent from "./EditStudent";
 import Modal from "./Modal";
 function Table() {
-  const { students, getStudents, editStudent, deleteStudent } = useStudents();
+  const { students, getStudents, deleteStudent } = useStudents();
   const [show, setShow] = useState(false);
-  const [isEdit, setIsEdit] = useState();
+  const [edit, setEdit] = useState(false);
   const [id, setId] = useState();
   useEffect(() => {
     getStudents();
   }, []);
   const isEditing = (id) => {
-    setShow(true)
+    setEdit(true)
     setId(id);
-    setIsEdit(true)
   }
   return (
     <>
@@ -21,7 +21,10 @@ function Table() {
         Agregar
       </button>
       <Modal title='Agregar Estudiante' setShow={setShow} show={show}>
-        <FormStudent setShow={setShow} setIsEdit={setIsEdit} isEdit={isEdit} id={id} />
+        <FormStudent setShow={setShow} />
+      </Modal>
+      <Modal title='Editar Estudiante' setShow={setEdit} show={edit}>
+        <EditStudent id={id} />
       </Modal>
       <table className="table">
         <caption>

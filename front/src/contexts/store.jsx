@@ -8,6 +8,7 @@ export const useStudents = () => useContext(StudentContext);
 const endpoint = 'http://localhost:8000/api';
 
 export const StudentProvider = ({ children }) => {
+  const [courses, setCourses] = useState([]);
   const [students, setStudents] = useState([]);
   const [student, setStudent] = useState([]);
   const [teachers, setTeachers] = useState([]);
@@ -27,18 +28,27 @@ export const StudentProvider = ({ children }) => {
     axios.get(`${endpoint}/students`)
       .then(res => setStudents(res.data.data));
   }
-  function getTeachers() {
-    axios.get(`${endpoint}/teachers`)
-      .then(res => setTeachers(res.data.data));
-  }
-  function editStudent(data) {
-    axios.put(`${endpoint}/students`)
+
+  function editStudent(id, data) {
+    axios.put(`${endpoint}/students${id}`, data)
       .then(res => setStudent(res.data))
   }
+
   function getStudent(id) {
     axios.get(`${endpoint}/students/${id}`)
       .then(res => setStudent(res.data));
   }
+
+  function getTeachers() {
+    axios.get(`${endpoint}/teachers`)
+      .then(res => setTeachers(res.data.data));
+  }
+  
+  function getCourses() {
+    axios.get(`${endpoint}/courses`)
+      .then(res => setCourses(res.data.data));
+  }
+
   const login = (data) => {
     axios.post(`${endpoint}/login`, data)
       .then(res => {
@@ -48,10 +58,12 @@ export const StudentProvider = ({ children }) => {
       })
       .catch(err => console.log(err));
   };
+
   const signup = (data) => {
     axios.post(`${endpoint}/register`, data)
       .then(res => console.log(res.data));
   }
+
   const logout = () => {
     axios.post(`${endpoint}/logout`, {}, {
       headers: {
@@ -76,7 +88,8 @@ export const StudentProvider = ({ children }) => {
       value={{
         students, setStudents, getStudents,
         addStudent, editStudent, deleteStudent, isAuthenticated, getStudent,
-        setIsAuthenticated, login, logout, user, signup, teachers, getTeachers, student
+        setIsAuthenticated, login, logout, user, signup, teachers, getTeachers, student,
+        getCourses, courses
       }}>
       {children}
     </StudentContext.Provider>
