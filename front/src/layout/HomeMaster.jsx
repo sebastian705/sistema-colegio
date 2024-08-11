@@ -14,11 +14,11 @@ const HomeMaster = ({ children }) => {
       <div className="container-dashboard">
         <NavBar />
         <main className="main">
-          <div className="hola">
+          <div className="nav-header">
             <h2>#Dashboard</h2>
-            <p>
+            <div className="user">
               <img src={usuario} alt="user" /> Usuario
-            </p>
+            </div>
           </div>
           {children}
         </main>
